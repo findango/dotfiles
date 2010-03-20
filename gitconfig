@@ -1,0 +1,9 @@
+[user]
+	name = Finlay Cannon
+	email = fin@finlaycannon.com
+[color]
+    diff = auto
+    status = auto
+    branch = auto
+[core]
+	excludesfile = /Users/finlay/.gitignore
