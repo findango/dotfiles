@@ -1,9 +1,11 @@
-[user]
-	name = Finlay Cannon
-	email = fin@finlaycannon.com
+# Add local config here
+
+
+# Don't edit below this line
+
 [color]
     diff = auto
     status = auto
     branch = auto
 [core]
-	excludesfile = /Users/finlay/.gitignore
+	excludesfile = ~/.gitignore
