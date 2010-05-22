@@ -1,11 +1,19 @@
-# Add local config here
-
-
-# Don't edit below this line
+[user]
+    name = Finlay Cannon
+    email = fin@finlaycannon.com
 
 [color]
     diff = auto
     status = auto
     branch = auto
+
 [core]
-	excludesfile = ~/.gitignore
+    excludesfile = ~/.gitignore
+
+[alias]
+    b = branch
+    ci = commit
+    co = checkout
+    st = status
+    unstage = reset HEAD
+

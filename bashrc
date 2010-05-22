@@ -10,7 +10,6 @@ if [ -f /etc/bashrc ]; then
 fi
 
 # color ls
-#alias ls='/bin/ls2 --color'
 export CLICOLOR=1
 
 # aliases
@@ -27,6 +26,8 @@ alias df='df -h'
 # exports
 export PAGER=less
 export EDITOR=vi
+# don't put duplicate lines in the history
+export HISTCONTROL=ignoredups
 
 # path
 export JAVA_HOME=/Library/Java/Home
