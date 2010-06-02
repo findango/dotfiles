@@ -11,9 +11,12 @@
     excludesfile = ~/.gitignore
 
 [alias]
-    b = branch
+    br = branch
     ci = commit
     co = checkout
     st = status
     unstage = reset HEAD
+
+[github]
+    user = findango
 
