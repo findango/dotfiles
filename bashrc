@@ -13,6 +13,10 @@ function add_path() {
     export PATH=${PATH}:$1
 }
 
+function parse_git_branch {
+ git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+
 # aliases
 alias rm='rm -i'
 alias mv='mv -i'
@@ -49,5 +53,5 @@ add_path "$GROOVY_HOME/bin"
 add_path "/usr/local/git/bin"
 
 # prompt
-PS1="\[\033[0;32m\]\h:\W\\$ \[\033[0m\]"
+PS1="\[\033[0;32m\]\h:\W \$(parse_git_branch)\\$ \[\033[0m\]"
 
