@@ -14,7 +14,7 @@
     br = branch
     ci = commit
     co = checkout
-    st = status
+    st = status -s
     unstage = reset HEAD
 
 [github]
