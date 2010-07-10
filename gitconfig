@@ -15,6 +15,7 @@
     ci = commit
     co = checkout
     st = status -s
+    stat = status -s
     unstage = reset HEAD
 
 [github]
