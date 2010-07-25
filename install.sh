@@ -16,5 +16,6 @@ link bash_profile
 link bashrc
 link gitconfig
 link gitignore
+link vimrc 
 
 source ~/.bash_profile
