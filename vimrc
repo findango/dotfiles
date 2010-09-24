@@ -10,18 +10,69 @@ set nocompatible
 set backspace=indent,eol,start
 vmap <BS> x
 
+" general stuff
 set nobackup
 set history=50
 set ruler
 set showcmd	
-set incsearch
-
-set expandtab
-set tabstop=4
-set shiftwidth=4
 set autoindent
 set smartindent
 set nowrap
+set showmatch
+set modelines=0    " turn off modelines (some security exploits)
+set scrolloff=3    " scroll before the end of the page
+set shortmess=aIoO " short messages, no intro
+set splitbelow
+
+"set nofsync
+
+" tabs
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+set expandtab
+
+" searching
+set ignorecase   " ignore case during searches
+set smartcase    " except when there are CapitalLetters
+set gdefault     " make s///g the default
+set incsearch
+set hlsearch
+set wrapscan
+
+" make regexes work like Perl
+nnoremap / /\v
+vnoremap / /\v
+
+" autocomplete when opening files. Behaves somewhat similarly to bash.
+set wildignore=*.bak,*.swp,*.pyc,*.o,*.obj,*.dll,*.exe
+set wildmenu
+set wildmode=list:longest
+
+"-- shortcuts -----------
+
+" turn off highlight
+nnoremap <leader><space> :nohl<cr>
+
+" strip all trailing whitespace in the file
+nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
+
+" re-hardwrap a paragraph of text
+nnoremap <leader>q gqip
+
+" re-select pasted text
+nnoremap <leader>v V`]
+
+" quick edit for .vimrc
+nnoremap <leader>ev <C-w><C-s><C-l>:e $MYVIMRC<cr>
+
+" underline
+nnoremap <leader>u yypVr-
+
+" fix line ends
+nnoremap <leader>n :%s/\r/\n/g<cr>
+
+"------------------------
 
 
 " Don't use Ex mode, use Q for formatting
@@ -32,7 +83,6 @@ if &t_Co > 2 || has("gui_running")
     syntax on
     colorscheme desert
     set bg=dark
-    "set hlsearch
 endif
 
 " initial size
