@@ -4,6 +4,11 @@
 " Finlay Cannon 
 "
 
+" load bundles from ~/.vim/plugin
+filetype off
+call pathogen#runtime_append_all_bundles()
+filetype plugin indent on
+
 set nocompatible
 
 " allow backspacing over everything in insert mode
@@ -52,7 +57,7 @@ set wildmode=list:longest
 "-- shortcuts -----------
 
 " turn off highlight
-nnoremap <leader><space> :nohl<cr>
+nnoremap <leader><space> :nohl<CR>
 
 " strip all trailing whitespace in the file
 nnoremap <leader>W :%s/\s\+$//<cr>:let @/=''<CR>
@@ -64,13 +69,16 @@ nnoremap <leader>q gqip
 nnoremap <leader>v V`]
 
 " quick edit for .vimrc
-nnoremap <leader>ev <C-w><C-s><C-l>:e $MYVIMRC<cr>
+nnoremap <leader>ev <C-w><C-s><C-l>:e $MYVIMRC<CR>
 
 " underline
 nnoremap <leader>u yypVr-
 
 " fix line ends
-nnoremap <leader>n :%s/\r/\n/g<cr>
+nnoremap <leader>n :%s/\r/\n/g<CR>
+
+" toggle NERDTree browser
+nnoremap <leader>t :NERDTreeToggle<CR>
 
 "------------------------
 
