@@ -24,9 +24,9 @@ set autoindent
 set smartindent
 set nowrap
 set showmatch
-set modelines=0    " turn off modelines (some security exploits)
-set scrolloff=3    " scroll before the end of the page
-set shortmess=aIoO " short messages, no intro
+set modelines=0     " turn off modelines (some security exploits)
+set scrolloff=3     " scroll before the end of the page
+set shortmess=aIoOt " short messages, no intro
 set splitbelow
 
 "set nofsync
@@ -89,7 +89,7 @@ map Q gq
 " colors and syntax highlighting
 if &t_Co > 2 || has("gui_running")
     syntax on
-    colorscheme desert
+    colorscheme twilight
     set bg=dark
 endif
 
