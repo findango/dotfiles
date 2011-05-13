@@ -80,6 +80,14 @@ nnoremap <leader>n :%s/\r/\n/g<CR>
 " toggle NERDTree browser
 nnoremap <leader>t :NERDTreeToggle<CR>
 
+" Bubble single lines
+nmap <C-Up> ddkP
+nmap <C-Down> ddp
+
+" Bubble multiple lines
+vmap <C-Up> xkP`[V`]
+vmap <C-Down> xp`[V`]
+
 "------------------------
 
 
