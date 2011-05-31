@@ -27,6 +27,7 @@ alias la='ls -la'
 alias cpwd='pwd | xargs echo-n | pbcopy'
 alias reload='. ~/.bash_profile'
 alias df='df -h'
+alias rot13='tr a-zA-Z n-za-mN-ZA-M'
 
 # optional behaviour
 export PAGER=less
