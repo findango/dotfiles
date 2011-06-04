@@ -103,7 +103,7 @@ endif
 
 " initial size
 if has("gui_running")
-    set lines=40 columns=80
+    set lines=50 columns=90
 endif
 
 
