@@ -4,9 +4,10 @@
 " Finlay Cannon 
 "
 
-" load bundles from ~/.vim/plugin
+" load bundles from ~/.vim/bundle
 filetype off
-call pathogen#runtime_append_all_bundles()
+call pathogen#infect()
+syntax on
 filetype plugin indent on
 
 set nocompatible
@@ -80,6 +81,9 @@ nnoremap <leader>n :%s/\r/\n/g<CR>
 " toggle NERDTree browser
 nnoremap <leader>t :NERDTreeToggle<CR>
 
+" toggle line numbering
+nnoremap <leader>l :set invnumber<CR>
+
 " Bubble single lines
 nmap <C-Up> ddkP
 nmap <C-Down> ddp
@@ -87,6 +91,9 @@ nmap <C-Down> ddp
 " Bubble multiple lines
 vmap <C-Up> xkP`[V`]
 vmap <C-Down> xp`[V`]
+
+" quick format XML
+nnoremap <leader>x :%s/></>\r</<CR>:0<CR>=:$<CR>
 
 "------------------------
 
