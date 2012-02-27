@@ -6,7 +6,7 @@
 
 " load bundles from ~/.vim/plugin
 filetype off
-call pathogen#runtime_append_all_bundles()
+call pathogen#infect()
 filetype plugin indent on
 
 set nocompatible
@@ -49,6 +49,13 @@ set wrapscan
 nnoremap / /\v
 vnoremap / /\v
 
+" make Y behave like other capitals
+map Y y$
+
+" reselect blocks after indent
+vnoremap < <gv
+vnoremap > >gv
+
 " autocomplete when opening files. Behaves somewhat similarly to bash.
 set wildignore=*.bak,*.swp,*.pyc,*.o,*.obj,*.dll,*.exe
 set wildmenu
@@ -80,6 +87,9 @@ nnoremap <leader>n :%s/\r/\n/g<CR>
 " toggle NERDTree browser
 nnoremap <leader>t :NERDTreeToggle<CR>
 
+" toggle invisibles
+noremap <Leader>i :set list!<CR>
+
 " Bubble single lines
 nmap <C-Up> ddkP
 nmap <C-Down> ddp
@@ -90,7 +100,6 @@ vmap <C-Down> xp`[V`]
 
 "------------------------
 
-
 " Don't use Ex mode, use Q for formatting
 map Q gq
 
@@ -99,6 +108,7 @@ if &t_Co > 2 || has("gui_running")
     syntax on
     colorscheme twilight
     set bg=dark
+    set guifont=Courier\ New:h12
 endif
 
 " initial size
@@ -139,4 +149,9 @@ else
     " always set autoindenting on
     set autoindent
 
+endif
+
+" load any local settings
+if filereadable(expand("~/.vimrc.local"))
+    source ~/.vimrc.local
 endif
