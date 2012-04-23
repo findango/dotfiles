@@ -114,7 +114,6 @@ if &t_Co > 2 || has("gui_running")
     syntax on
     colorscheme twilight
     set bg=dark
-    set guifont=Courier\ New:h12
 endif
 
 " initial size
