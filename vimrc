@@ -77,6 +77,7 @@ nnoremap <leader>v V`]
 
 " quick edit for .vimrc
 nnoremap <leader>ev <C-w><C-s><C-l>:e $MYVIMRC<CR>
+nnoremap <leader>el <C-w><C-s><C-l>:e $MYVIMRC.local<CR>
 
 " underline
 nnoremap <leader>u yypVr-
@@ -124,7 +125,6 @@ endif
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
-
     " Enable file type detection.
     " Use the default filetype settings, so that mail gets 'tw' set to 72,
     " 'cindent' is on in C files, etc.
@@ -148,15 +148,20 @@ if has("autocmd")
         \ endif
 
     augroup END
-
 else
-
     " always set autoindenting on
     set autoindent
+endif
 
+" automatically reload vimrc after editing
+if has("autocmd")
+    autocmd bufwritepost .vimrc source $MYVIMRC
+    autocmd bufwritepost .vimrc.local source $MYVIMRC
 endif
 
 " load any local settings
 if filereadable(expand("~/.vimrc.local"))
     source ~/.vimrc.local
 endif
+
+
