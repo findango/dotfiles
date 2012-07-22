@@ -28,6 +28,7 @@ set modelines=0     " turn off modelines (some security exploits)
 set scrolloff=3     " scroll before the end of the page
 set shortmess=aIoOt " short messages, no intro
 set splitbelow
+set tildeop         " use ~ like an operator
 
 "set nofsync
 
@@ -105,6 +106,9 @@ vmap <C-Down> xp`[V`]
 " quick format XML
 nnoremap <leader>x :%s/></>\r</<CR>:0<CR>=:$<CR>
 
+" add a semicolon ';' at the end of the line
+nnoremap ;; A;<Esc>
+
 "------------------------
 
 " Don't use Ex mode, use Q for formatting
@@ -139,6 +143,10 @@ if has("autocmd")
     " For all text files set 'textwidth' to 78 characters.
     autocmd FileType text setlocal textwidth=78
 
+    " tab settings for specific filetypes
+    autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
+    autocmd FileType javascript setlocal ts=4 sts=4 sw=4 expandtab
+
     " When editing a file, always jump to the last known cursor position.
     " Don't do it when the position is invalid or when inside an event handler
     " (happens when dropping a file on gvim).
@@ -163,5 +171,4 @@ endif
 if filereadable(expand("~/.vimrc.local"))
     source ~/.vimrc.local
 endif
-
 
