@@ -8,11 +8,6 @@ if [ -f /etc/bashrc ]; then
     . /etc/bashrc
 fi
 
-# path helper
-function add_path() {
-    export PATH=${PATH}:$1
-}
-
 function parse_git_branch {
  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
@@ -28,6 +23,7 @@ alias cpwd='pwd | xargs echo-n | pbcopy'
 alias reload='. ~/.bash_profile'
 alias df='df -h'
 alias rot13='tr a-zA-Z n-za-mN-ZA-M'
+alias cls=clear
 
 # optional behaviour
 export PAGER=less
@@ -45,13 +41,15 @@ export ANT_HOME=/sw/lib/ant
 export GROOVY_HOME=/Library/Groovy/Home
 export CCL_DEFAULT_DIRECTORY=/Library/ccl/scripts
 
-add_path "~/bin"
-add_path "/usr/local/bin"
-add_path "/opt/local/bin"
-add_path "/usr/local/mysql/bin"
-add_path "/System/Library/Frameworks/Python.framework/Versions/2.3/bin"
-add_path "$GROOVY_HOME/bin"
-add_path "/usr/local/git/bin"
+export PATH=$PATH:\
+~/bin:\
+/usr/local/bin:\
+/opt/local/bin:\
+/usr/local/mysql/bin:\
+/System/Library/Frameworks/Python.framework/Versions/2.3/bin:\
+$GROOVY_HOME/bin:\
+/usr/local/git/bin
+
 
 # prompt
 PS1="\[\033[0;32m\]\h:\W \$(parse_git_branch)\\$ \[\033[0m\]"
