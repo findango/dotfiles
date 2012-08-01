@@ -109,6 +109,13 @@ nnoremap <leader>x :%s/></>\r</<CR>:0<CR>=:$<CR>
 " add a semicolon ';' at the end of the line
 nnoremap ;; A;<Esc>
 
+" smart home- and end-key behaviour
+noremap <expr> <Home> (col('.') == matchend(getline('.'), '^\s*')+1 ? '0' : '^')
+noremap <expr> <End> (col('.') == match(getline('.'), '\s*$') ? '$' : 'g_')
+vnoremap <expr> <End> (col('.') == match(getline('.'), '\s*$') ? '$h' : 'g_')
+imap <Home> <C-o><Home>
+imap <End> <C-o><End>
+
 "------------------------
 
 " Don't use Ex mode, use Q for formatting
