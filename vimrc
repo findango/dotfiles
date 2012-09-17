@@ -133,6 +133,8 @@ if &t_Co > 2 || has("gui_running")
     syntax on
     colorscheme twilight
     set bg=dark
+    hi Cursor guibg=#96B2CD
+    hi MatchParen gui=none guibg=#52665C
 endif
 
 " initial size
