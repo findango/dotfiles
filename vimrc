@@ -78,7 +78,7 @@ nnoremap <leader>v V`]
 
 " quick edit for .vimrc
 nnoremap <leader>ev <C-w><C-s><C-l>:e $MYVIMRC<CR>
-nnoremap <leader>el <C-w><C-s><C-l>:e $MYVIMRC.local<CR>
+nnoremap <leader>evl <C-w><C-s><C-l>:e $MYVIMRC.local<CR>
 
 " underline
 nnoremap <leader>u yypVr-
@@ -161,7 +161,7 @@ if has("autocmd")
 
     " tab settings for specific filetypes
     autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
-    autocmd FileType javascript setlocal ts=4 sts=4 sw=4 expandtab
+    autocmd FileType javascript setlocal ts=4 sts=4 sw=4 expandtab number
 
     " When editing a file, always jump to the last known cursor position.
     " Don't do it when the position is invalid or when inside an event handler
