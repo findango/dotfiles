@@ -118,7 +118,7 @@ nnoremap ;; A;<Esc>
 
 " smart home- and end-key behaviour
 noremap <expr> <Home> (col('.') == matchend(getline('.'), '^\s*')+1 ? '0' : '^')
-noremap <expr> <End> (col('.') == match(getline('.'), '\s*$') ? '$' : 'g_')
+noremap <expr> <End> (col('.') == match(getline('.'), '\s*$') ? '$' : 'g_<right>')
 vnoremap <expr> <End> (col('.') == match(getline('.'), '\s*$') ? '$h' : 'g_')
 imap <Home> <C-o><Home>
 imap <End> <C-o><End>
