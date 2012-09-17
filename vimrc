@@ -95,6 +95,13 @@ nnoremap <leader>l :set invnumber<CR>
 " toggle invisibles
 noremap <Leader>i :set list!<CR>
 
+" switch between tabs
+nmap <C-Right> :tabn<CR>
+nmap <C-Left>  :tabp<CR>
+
+"nmap <C-Up> :windown<CR>
+"nmap <C-Down> :windowp<CR>
+
 " Bubble single lines
 nmap <C-Up> ddkP
 nmap <C-Down> ddp
