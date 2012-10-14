@@ -30,6 +30,7 @@ set shortmess=aIoOt " short messages, no intro
 set splitbelow
 set tildeop         " use ~ like an operator
 
+set clipboard=unnamed  " use the OS clipboard by default
 "set nofsync
 
 " tabs
@@ -159,6 +160,9 @@ if has("autocmd")
     " For all text files set 'textwidth' to 78 characters.
     autocmd FileType text setlocal textwidth=78
 
+	" Treat .json files as .js
+	autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
+    
     " tab settings for specific filetypes
     autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
     autocmd FileType javascript setlocal ts=4 sts=4 sw=4 expandtab number
