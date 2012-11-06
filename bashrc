@@ -8,8 +8,9 @@ if [ -f /etc/bashrc ]; then
     . /etc/bashrc
 fi
 
+# fancy git prompts
 function parse_git_branch {
- git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
 
 # aliases
@@ -17,13 +18,14 @@ alias rm='rm -i'
 alias mv='mv -i'
 alias h='history 25'
 alias j='jobs -l'
-alias ll='ls -l'
-alias la='ls -la'
+alias ll='ls -lh'
+alias la='ls -lah'
 alias cpwd='pwd | xargs echo-n | pbcopy'
 alias reload='. ~/.bash_profile'
 alias df='df -h'
 alias rot13='tr a-zA-Z n-za-mN-ZA-M'
 alias cls=clear
+alias finder='open -a finder `pwd`'
 
 # optional behaviour
 export PAGER=less
@@ -32,7 +34,7 @@ export CLICOLOR=1 # color ls
 
 # history settings
 export HISTCONTROL=ignoredups  # don't put duplicate lines in the history
-export HISTIGNORE="ls:ll:la:pwd:clear:h:j"
+export HISTIGNORE="ls:ll:la:pwd:clear:h:j:* --help"
 shopt -s histappend            # append to the history file rather than overwriting
 
 # path

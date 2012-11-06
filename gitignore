@@ -1,5 +1,21 @@
+# see: https://github.com/github/gitignore
+
+# os x
 .DS_Store
-*.sw[nop]
-*.bak
+._*
+.Trashes
+
+# vim
+.*.sw[a-z]
+*.un~
+
+# java
 *.class
-*.pyc
+*.jar
+*.war
+*.ear
+
+# others
+*.bak
+*.py[cod]
+

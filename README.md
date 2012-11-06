@@ -1,4 +1,4 @@
-Finlay's dot files
+## Finlay's dot files
 
 To install:
 
