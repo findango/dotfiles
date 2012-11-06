@@ -27,9 +27,9 @@ set showmatch
 set modelines=0     " turn off modelines (some security exploits)
 set scrolloff=3     " scroll before the end of the page
 set shortmess=aIoOt " short messages, no intro
-set splitbelow
+set splitbelow      " new splits below existing
 set tildeop         " use ~ like an operator
-
+set autochdir       " automatically cd to the current file's dir
 "set nofsync
 
 " tabs
@@ -123,6 +123,17 @@ vnoremap <expr> <End> (col('.') == match(getline('.'), '\s*$') ? '$h' : 'g_')
 imap <Home> <C-o><Home>
 imap <End> <C-o><End>
 
+" reposition the cursor inside common programming doubles 
+inoremap ""  ""<Left>
+inoremap ''  ''<Left>
+inoremap {}  {}<Left>
+inoremap []  []<Left>
+"inoremap ()  ()<Left>
+"inoremap ()) ()
+
+" do syntax highlighting from the start of the file
+autocmd BufEnter * :syntax sync fromstart
+
 "------------------------
 
 " Don't use Ex mode, use Q for formatting
@@ -131,10 +142,14 @@ map Q gq
 " colors and syntax highlighting
 if &t_Co > 2 || has("gui_running")
     syntax on
-    colorscheme twilight
     set bg=dark
+    
+    colorscheme twilight
     hi Cursor guibg=#96B2CD
     hi MatchParen gui=none guibg=#52665C
+    hi LineNr guibg=#0d0d0d
+    hi Search guibg=#fada5e
+    hi link NERDTreeRO Comment
 endif
 
 " initial size
