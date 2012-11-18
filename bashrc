@@ -9,11 +9,13 @@ if [ -f /etc/bashrc ]; then
 fi
 
 # fancy git prompts
-function parse_git_branch {
+function git_branch {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
 
 # aliases
+alias ..='cd ..'
+alias :q='exit'  # habits are hard to break
 alias rm='rm -i'
 alias mv='mv -i'
 alias h='history 25'
@@ -29,6 +31,7 @@ alias finder='open -a finder `pwd`'
 
 # optional behaviour
 export PAGER=less
+export MANPAGER='less -F'
 export EDITOR=vi
 export CLICOLOR=1 # color ls
 
@@ -54,5 +57,5 @@ $GROOVY_HOME/bin:\
 
 
 # prompt
-PS1="\[\033[0;32m\]\h:\W \$(parse_git_branch)\\$ \[\033[0m\]"
+PS1="\[\033[0;32m\]\w \$(git_branch)\\$ \[\033[0m\]"
 
