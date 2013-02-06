@@ -18,6 +18,7 @@ alias ..='cd ..'
 alias :q='exit'  # habits are hard to break
 alias rm='rm -i'
 alias mv='mv -i'
+alias md='mkdir -p'
 alias h='history 25'
 alias j='jobs -l'
 alias ll='ls -lh'
