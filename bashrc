@@ -30,6 +30,10 @@ alias rot13='tr a-zA-Z n-za-mN-ZA-M'
 alias cls=clear
 alias finder='open -a finder `pwd`'
 
+# hide/show all desktop icons (useful when presenting)
+alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
+alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
+
 # optional behaviour
 export PAGER=less
 export MANPAGER='less -F'
