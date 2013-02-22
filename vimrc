@@ -32,6 +32,7 @@ set tildeop         " use ~ like an operator
 set autochdir       " automatically cd to the current file's dir
 set clipboard=unnamed  " use the OS clipboard by default
 "set nofsync
+set laststatus=2
 
 " tabs
 set tabstop=4
@@ -88,7 +89,8 @@ nnoremap <leader>u yypVr-
 nnoremap <leader>n :%s/\r/\n/g<CR>
 
 " toggle NERDTree browser
-nnoremap <leader>t :NERDTreeToggle<CR>
+nnoremap <leader>[ :NERDTreeToggle<CR>
+:let NERDTreeDirArrows=1
 
 " toggle line numbering
 nnoremap <leader>l :set invnumber<CR>
@@ -196,11 +198,6 @@ else
     set autoindent
 endif
 
-" automatically reload vimrc after editing
-if has("autocmd")
-    autocmd bufwritepost .vimrc source $MYVIMRC
-    autocmd bufwritepost .vimrc.local source $MYVIMRC
-endif
 
 " load any local settings
 if filereadable(expand("~/.vimrc.local"))
