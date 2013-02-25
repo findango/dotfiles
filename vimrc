@@ -4,28 +4,32 @@
 " Finlay Cannon 
 "
 
+set nocompatible
+
 " load bundles from ~/.vim/bundle
 filetype off
 call pathogen#infect()
 filetype plugin indent on
-
-set nocompatible
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 vmap <BS> x
 
 " general stuff
-set nobackup
+set encoding=utf-8
+"set hidden          " make vim work like every other editor
+set nobackup        " no backup files please
 set history=50
-set ruler
-set showcmd	
+set ruler           " show cursor position
+set showcmd
+set laststatus=2    " always show the status line
 set autoindent
 set smartindent
-set nowrap
-set showmatch
+set nowrap          " don't wrap text
+set showmatch       " show matching parens, etc
+set matchtime=2     " show matching parens for 0.2 sec
 set modelines=0     " turn off modelines (some security exploits)
-set scrolloff=3     " scroll before the end of the page
+set scrolloff=5     " scroll before the end of the page
 set shortmess=aIoOt " short messages, no intro
 set splitbelow      " new splits below existing
 set tildeop         " use ~ like an operator
@@ -87,9 +91,6 @@ nnoremap <leader>u yypVr-
 " fix line ends
 nnoremap <leader>n :%s/\r/\n/g<CR>
 
-" toggle NERDTree browser
-nnoremap <leader>t :NERDTreeToggle<CR>
-
 " toggle line numbering
 nnoremap <leader>l :set invnumber<CR>
 
@@ -124,15 +125,8 @@ vnoremap <expr> <End> (col('.') == match(getline('.'), '\s*$') ? '$h' : 'g_')
 imap <Home> <C-o><Home>
 imap <End> <C-o><End>
 
-" reposition the cursor inside common programming doubles 
-inoremap ""  ""<Left>
-inoremap ''  ''<Left>
-inoremap {}  {}<Left>
-inoremap []  []<Left>
-"inoremap ()  ()<Left>
-"inoremap ()) ()
 
-" do syntax highlighting from the start of the file
+" do syntax highlighting from the start of the file to avoid quirks
 autocmd BufEnter * :syntax sync fromstart
 
 "------------------------
@@ -149,7 +143,7 @@ if &t_Co > 2 || has("gui_running")
     hi Cursor guibg=#96B2CD
     hi MatchParen gui=none guibg=#52665C
     hi LineNr guibg=#0d0d0d
-    hi Search guibg=#fada5e
+    hi Search guibg=#fcf75e
     hi link NERDTreeRO Comment
 endif
 
@@ -175,11 +169,11 @@ if has("autocmd")
     " For all text files set 'textwidth' to 78 characters.
     autocmd FileType text setlocal textwidth=78
 
-	" Treat .json files as .js
-	autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
+    " Treat .json files as .js
+    autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
     
     " tab settings for specific filetypes
-    autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
+    autocmd FileType html setlocal ts=4 sts=4 sw=4 expandtab number
     autocmd FileType javascript setlocal ts=4 sts=4 sw=4 expandtab number
 
     " When editing a file, always jump to the last known cursor position.
@@ -196,6 +190,27 @@ else
     set autoindent
 endif
 
+" ctrlp.vim
+let g:ctrlp_map = '<Leader>]'
+let g:ctrlp_match_window_bottom = 0
+let g:ctrlp_match_window_reversed = 0
+let g:ctrlp_custom_ignore = '\v\~$|\.(o|swp|pyc|wav|mp3|ogg|blend)$|(^|[/\\])\.(hg|git|bzr)($|[/\\])|__init__\.py|test'
+let g:ctrlp_working_path_mode = 'ra'
+let g:ctrlp_dotfiles = 0
+let g:ctrlp_switch_buffer = 0
+"nmap ; :CtrlPBuffer<CR>
+
+" syntastic
+let g:syntastic_enable_signs=1
+let g:syntastic_auto_loc_list=1
+
+" powerline
+let g:Powerline_symbols="fancy"
+
+" nerdtree
+nnoremap <leader>[ :NERDTreeToggle<CR>
+let g:NERDTreeDirArrows=1
+"let g:NERDTreeMinimalUI=1
 
 " Correct my fumblefingers. See http://blog.sanctum.geek.nz/vim-command-typos/ 
 if has("user_commands")
