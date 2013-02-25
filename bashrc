@@ -41,9 +41,9 @@ export EDITOR=vi
 export CLICOLOR=1 # color ls
 
 # history settings
-export HISTCONTROL=ignoredups  # don't put duplicate lines in the history
-export HISTIGNORE="ls:ll:la:pwd:clear:h:j:* --help"
-shopt -s histappend            # append to the history file rather than overwriting
+export HISTCONTROL=ignoredups                         # don't put duplicate lines in the history
+export HISTIGNORE="ls:ll:la:pwd:clear:h:j:* --help"   # ignore common minor commands
+shopt -s histappend                                   # append to the history file rather than overwriting
 
 # path
 export JAVA_HOME=/Library/Java/Home
