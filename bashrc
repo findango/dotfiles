@@ -9,13 +9,16 @@ if [ -f /etc/bashrc ]; then
 fi
 
 # fancy git prompts
-function parse_git_branch {
-    git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+function git_branch {
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
 
 # aliases
+alias ..='cd ..'
+alias :q='exit'  # habits are hard to break
 alias rm='rm -i'
 alias mv='mv -i'
+alias md='mkdir -p'
 alias h='history 25'
 alias j='jobs -l'
 alias ll='ls -lh'
@@ -27,8 +30,13 @@ alias rot13='tr a-zA-Z n-za-mN-ZA-M'
 alias cls=clear
 alias finder='open -a finder `pwd`'
 
+# hide/show all desktop icons (useful when presenting)
+alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
+alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
+
 # optional behaviour
 export PAGER=less
+export MANPAGER='less -F'
 export EDITOR=vi
 export CLICOLOR=1 # color ls
 
@@ -72,10 +80,8 @@ function prompt {
     local WHITEBOLD="\[\033[1;37m\]"
     local NORMAL="\[\033[00m\]"
 
-    export PS1="\n$BLACKBOLD[\t]$GREENBOLD \u@\h\[\033[00m\]:$BLUEBOLD\w\[\033[00m\] \\$ "
-    #export PS1="\[\033[0;32m\]\h:\W \$(parse_git_branch)\\$ \[\033[0m\]"
+    #export PS1="\n$BLACKBOLD[\t]$GREENBOLD \u@\h\[\033[00m\]:$BLUEBOLD\w\[\033[00m\] \\$ "
+    export PS1="\[\033[0;32m\]\h:\W \$(parse_git_branch)\\$ \[\033[0m\]"
 }
 prompt
-
-#PS1="\[\033[0;32m\]\h:\W \$(parse_git_branch)\\$ \[\033[0m\]"
 

@@ -36,6 +36,7 @@ set tildeop         " use ~ like an operator
 set autochdir       " automatically cd to the current file's dir
 set clipboard=unnamed  " use the OS clipboard by default
 "set nofsync
+set laststatus=2
 
 " tabs
 set tabstop=4
@@ -91,6 +92,13 @@ nnoremap <leader>u yypVr-
 " fix line ends
 nnoremap <leader>n :%s/\r/\n/g<CR>
 
+<<<<<<< HEAD
+=======
+" toggle NERDTree browser
+nnoremap <leader>[ :NERDTreeToggle<CR>
+:let NERDTreeDirArrows=1
+
+>>>>>>> origin
 " toggle line numbering
 nnoremap <leader>l :set invnumber<CR>
 
