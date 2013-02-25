@@ -92,13 +92,6 @@ nnoremap <leader>u yypVr-
 " fix line ends
 nnoremap <leader>n :%s/\r/\n/g<CR>
 
-<<<<<<< HEAD
-=======
-" toggle NERDTree browser
-nnoremap <leader>[ :NERDTreeToggle<CR>
-:let NERDTreeDirArrows=1
-
->>>>>>> origin
 " toggle line numbering
 nnoremap <leader>l :set invnumber<CR>
 
