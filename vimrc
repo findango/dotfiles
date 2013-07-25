@@ -68,6 +68,11 @@ set wildignore=*.bak,*.swp,*.pyc,*.o,*.obj,*.dll,*.exe
 set wildmenu
 set wildmode=list:longest
 
+" disable middle-click paste
+map <MiddleMouse> <Nop>
+imap <MiddleMouse> <Nop>
+
+
 "-- shortcuts -----------
 
 " turn off highlight
