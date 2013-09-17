@@ -76,6 +76,7 @@ imap <2-MiddleMouse> <Nop>
 
 
 "-- shortcuts -----------
+let mapleader=","
 
 " turn off highlight
 nnoremap <leader><space> :nohl<CR>
