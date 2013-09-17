@@ -69,8 +69,10 @@ set wildmenu
 set wildmode=list:longest
 
 " disable middle-click paste
-map <MiddleMouse> <Nop>
-imap <MiddleMouse> <Nop>
+map  <MiddleMouse>   <Nop>
+imap <MiddleMouse>   <Nop>
+map  <2-MiddleMouse> <Nop>
+imap <2-MiddleMouse> <Nop>
 
 
 "-- shortcuts -----------
@@ -109,14 +111,6 @@ nmap <C-Left>  :tabp<CR>
 
 "nmap <C-Up> :windown<CR>
 "nmap <C-Down> :windowp<CR>
-
-" Bubble single lines
-nmap <C-Up> ddkP
-nmap <C-Down> ddp
-
-" Bubble multiple lines
-vmap <C-Up> xkP`[V`]
-vmap <C-Down> xp`[V`]
 
 " quick format XML
 nnoremap <leader>x :%s/></>\r</<CR>:0<CR>=:$<CR>
