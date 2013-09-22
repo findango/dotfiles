@@ -15,10 +15,14 @@
     ci = commit
     co = checkout
     st = status -s
-    stat = status -s
-    unstage = reset HEAD
+    stat = status
+    stage = !sh -c '[[ -z "$@" ]] && git add -u || git add "$@" && git add -u "$@" ' -
+    unstage = reset HEAD --
+    unadd = rm -r --cached --
+    rewind = ![[ -z "$@" ]] && git reset --hard HEAD || git checkout HEAD
     ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
     ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
+    last = log -1 HEAD
 
 [github]
     user = findango
