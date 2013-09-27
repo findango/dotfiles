@@ -37,6 +37,7 @@ set autochdir       " automatically cd to the current file's dir
 set clipboard=unnamed  " use the OS clipboard by default
 "set nofsync
 set laststatus=2
+set listchars=tab:>.,trail:.,extends:#,nbsp:.
 
 " tabs
 set tabstop=4
