@@ -37,6 +37,7 @@ set autochdir       " automatically cd to the current file's dir
 set clipboard=unnamed  " use the OS clipboard by default
 "set nofsync
 set laststatus=2
+set listchars=tab:>.,trail:.,extends:#,nbsp:.
 
 " tabs
 set tabstop=4
@@ -68,7 +69,15 @@ set wildignore=*.bak,*.swp,*.pyc,*.o,*.obj,*.dll,*.exe
 set wildmenu
 set wildmode=list:longest
 
+" disable middle-click paste
+map  <MiddleMouse>   <Nop>
+imap <MiddleMouse>   <Nop>
+map  <2-MiddleMouse> <Nop>
+imap <2-MiddleMouse> <Nop>
+
+
 "-- shortcuts -----------
+let mapleader=","
 
 " turn off highlight
 nnoremap <leader><space> :nohl<CR>
@@ -104,14 +113,6 @@ nmap <C-Left>  :tabp<CR>
 
 "nmap <C-Up> :windown<CR>
 "nmap <C-Down> :windowp<CR>
-
-" Bubble single lines
-nmap <C-Up> ddkP
-nmap <C-Down> ddp
-
-" Bubble multiple lines
-vmap <C-Up> xkP`[V`]
-vmap <C-Down> xp`[V`]
 
 " quick format XML
 nnoremap <leader>x :%s/></>\r</<CR>:0<CR>=:$<CR>
