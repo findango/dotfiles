@@ -60,7 +60,7 @@ set wrapscan     " wrap around
 nnoremap / /\v
 vnoremap / /\v
 
-" make Y behave like other capitals
+" make Y yank to end of line, like other capitals
 map Y y$
 
 " reselect blocks after indent
