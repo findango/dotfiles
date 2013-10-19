@@ -11,6 +11,9 @@ filetype off
 call pathogen#infect()
 filetype plugin indent on
 
+" do syntax highlighting from the start of the file to avoid quirks
+autocmd BufEnter * :syntax sync fromstart
+
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
 vmap <BS> x
@@ -127,9 +130,6 @@ vnoremap <expr> <End> (col('.') == match(getline('.'), '\s*$') ? '$h' : 'g_')
 imap <Home> <C-o><Home>
 imap <End> <C-o><End>
 
-
-" do syntax highlighting from the start of the file to avoid quirks
-autocmd BufEnter * :syntax sync fromstart
 
 "------------------------
 
