@@ -15,6 +15,8 @@ function git_branch {
 
 # aliases
 alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
 alias :q='exit'  # habits are hard to break
 alias rm='rm -i'
 alias mv='mv -i'
