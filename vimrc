@@ -78,6 +78,11 @@ imap <MiddleMouse>   <Nop>
 map  <2-MiddleMouse> <Nop>
 imap <2-MiddleMouse> <Nop>
 
+" suggested indenting options for html/js
+let g:html_indent_inctags = "html,body,head,tbody"
+let g:html_indent_script1 = "inc"
+let g:html_indent_style1 = "inc"
+
 
 "-- shortcuts -----------
 let mapleader=","
