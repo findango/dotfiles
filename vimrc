@@ -20,26 +20,26 @@ vmap <BS> x
 
 " general stuff
 set encoding=utf-8
-"set hidden          " make vim work like every other editor
-set nobackup        " no backup files please
+"set hidden             " make vim work like every other editor
+set nobackup           " no backup files please
 set history=50
-set ruler           " show cursor position
+set ruler              " show cursor position
 set showcmd
-set laststatus=2    " always show the status line
+set laststatus=2       " always show the status line
 set autoindent
 set smartindent
-set nowrap          " don't wrap text
-set showmatch       " show matching parens, etc
-set matchtime=2     " show matching parens for 0.2 sec
-set modelines=0     " turn off modelines (some security exploits)
-set scrolloff=5     " scroll before the end of the page
-set shortmess=aIoOt " short messages, no intro
-set splitbelow      " new splits below existing
-set tildeop         " use ~ like an operator
-set autochdir       " automatically cd to the current file's dir
+set nowrap             " don't wrap text
+set showmatch          " show matching parens, etc
+set matchtime=2        " show matching parens for 0.2 sec
+set modelines=0        " turn off modelines (some security exploits)
+set scrolloff=5        " scroll before the end of the page
+set shortmess=aIoOt    " short messages, no intro
+set splitbelow         " new splits below existing
+set tildeop            " use ~ like an operator
+set autochdir          " automatically cd to the current file's dir
 set clipboard=unnamed  " use the OS clipboard by default
 "set nofsync
-set laststatus=2
+set laststatus=2       " always show the status line
 set listchars=tab:>.,trail:.,extends:#,nbsp:.
 
 " tabs
@@ -52,9 +52,9 @@ set expandtab
 set ignorecase   " ignore case during searches
 set smartcase    " except when there are CapitalLetters
 set gdefault     " make s///g the default
-set incsearch
-set hlsearch
-set wrapscan
+set incsearch    " highlight as the search is typed
+set hlsearch     " highlight matches
+set wrapscan     " wrap around
 
 " make regexes work like Perl
 nnoremap / /\v
