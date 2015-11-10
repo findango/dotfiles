@@ -60,7 +60,8 @@ export PATH=$PATH:\
 /usr/local/mysql/bin:\
 /System/Library/Frameworks/Python.framework/Versions/2.3/bin:\
 $GROOVY_HOME/bin:\
-/usr/local/git/bin
+/usr/local/git/bin:\
+/Applications/Splunk/bin
 
 function prompt {
     # see http://blog.bigdinosaur.org/easy-ps1-colors/
