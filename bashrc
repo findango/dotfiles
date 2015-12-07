@@ -84,7 +84,7 @@ function prompt {
     local NORMAL="\[\033[00m\]"
 
     #export PS1="\n$BLACKBOLD[\t]$GREENBOLD \u@\h\[\033[00m\]:$BLUEBOLD\w\[\033[00m\] \\$ "
-    export PS1="\[\033[0;32m\]\h:\W \$(git_branch)\\$ \[\033[0m\]"
+    export PS1="\[\033[0;32m\]\h:\w \$(git_branch)\n\\$ \[\033[0m\]"
 }
 prompt
 
