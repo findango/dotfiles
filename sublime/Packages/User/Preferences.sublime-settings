@@ -1,34 +1,22 @@
-// Settings in here override those in "Default/Preferences.sublime-settings", and
-// are overridden in turn by file type specific settings.
 {
-
-    // Set to true to insert spaces when tab is pressed
-    "translate_tabs_to_spaces": true,
-
-    // Set to a value other than 0 to force wrapping at that column rather than the
-    // window width
-    "wrap_width": 120,
-
-    // Set to true to draw a border around the visible rectangle on the minimap.
-    // The color of the border will be determined by the "minimapBorder" key in
-    // the color scheme
-    "draw_minimap_border": true,
-
-    // By default, auto complete will commit the current completion on enter.
-    // This setting can be used to make it complete on tab instead.
-    // Completing on tab is generally a superior option, as it removes
-    // ambiguity between committing the completion and inserting a newline.
-    "auto_complete_commit_on_tab": true,
-
-    // Controls if auto complete is shown when snippet fields are active.
-    // Only relevant if auto_complete_commit_on_tab is true.
-    "auto_complete_with_fields": false,
-
-    // By default, shift+tab will only unindent if the selection spans
-    // multiple lines. When pressing shift+tab at other times, it'll insert a
-    // tab character - this allows tabs to be inserted when tab_completion is
-    // enabled. Set this to true to make shift+tab always unindent, instead of
-    // inserting tabs.
-    "shift_tab_unindent": true
-
+	"auto_complete_commit_on_tab": true,
+	"auto_complete_with_fields": false,
+	"caret_style": "wide",
+	"color_scheme": "Packages/Color Scheme - Default/Dawn.tmTheme",
+	"draw_minimap_border": true,
+	"font_face": "Courier New",
+	"font_size": 15.0,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"preview_on_click": false,
+	"shift_tab_unindent": true,
+	"spacegray_sidebar_font_large": true,
+	"spacegray_tabs_font_large": true,
+	"spacegray_tabs_large": true,
+	// "theme": "Spacegray.sublime-theme",
+	"translate_tabs_to_spaces": true,
+	"word_wrap": "false",
+	"wrap_width": 120
 }
