@@ -43,14 +43,30 @@ export EDITOR=vi
 export CLICOLOR=1 # color ls
 
 # history settings
-export HISTCONTROL=ignoredups                         # don't put duplicate lines in the history
-export HISTIGNORE="ls:ll:la:pwd:clear:h:j:* --help"   # ignore common minor commands
-shopt -s histappend                                   # append to the history file rather than overwriting
+export HISTCONTROL=ignoredups  # don't put duplicate lines in the history
+export HISTIGNORE="ls:ll:la:pwd:clear:h:history:j:* --help"  # ignore common minor commands
+shopt -s histappend  # append to the history file rather than overwriting
+
+# npm
+NPM_PACKAGES="${HOME}/.npm-packages"
+PATH="$NPM_PACKAGES/bin:$PATH"
+# Unset manpath so we can inherit from /etc/manpath via the `manpath` command
+# delete if you already modified MANPATH elsewhere in your config
+unset MANPATH 
+export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
+
+# Splunk >
+export SPLUNK_HOME=~/splunk/current
+export SPLUNK_SOURCE=~/Projects/splunk_src
+PATH="$PATH:$SPLUNK_HOME/bin"
+
+# Groovy
+# export GROOVY_HOME=/Library/Groovy/Home
+# $GROOVY_HOME/bin:\
 
 # path
 export JAVA_HOME=/Library/Java/Home
 export ANT_HOME=/sw/lib/ant
-export GROOVY_HOME=/Library/Groovy/Home
 export CCL_DEFAULT_DIRECTORY=/Library/ccl/scripts
 
 export PATH=$PATH:\
@@ -59,9 +75,8 @@ export PATH=$PATH:\
 /opt/local/bin:\
 /usr/local/mysql/bin:\
 /System/Library/Frameworks/Python.framework/Versions/2.3/bin:\
-$GROOVY_HOME/bin:\
-/usr/local/git/bin:\
-/Applications/Splunk/bin
+/usr/local/git/bin
+
 
 function prompt {
     # see http://blog.bigdinosaur.org/easy-ps1-colors/
@@ -83,8 +98,6 @@ function prompt {
     local WHITEBOLD="\[\033[1;37m\]"
     local NORMAL="\[\033[00m\]"
 
-    #export PS1="\n$BLACKBOLD[\t]$GREENBOLD \u@\h\[\033[00m\]:$BLUEBOLD\w\[\033[00m\] \\$ "
-    export PS1="\[\033[0;32m\]\h:\w \$(git_branch)\n\\$ \[\033[0m\]"
+    export PS1="\[\033[0;32m\]\w \$(git_branch)\n\\$ \[\033[0m\]"
 }
 prompt
-
