@@ -18,13 +18,18 @@ function link {
     fi
 }
 
+echo "Linking..."
 link bash_profile
 link bashrc
 link gitconfig
 link gitignore
 link inputrc
 link jshintrc
+link npmrc
 link vimrc
+echo
 
+echo "Reloading bash profile..."
 source $HOME/.bash_profile
 
+echo "Done."
