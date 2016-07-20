@@ -57,21 +57,5 @@
     "scripturl"     : true,   // Tolerate script-targeted URLs.
     "shadow"        : false,  // Allows re-define variables later in code e.g. `var x=1; x=2;`.
     "supernew"      : false,  // Tolerate `new function () { ... };` and `new Object;`.
-    "undef"         : true,   // Require all non-global variables be declared before they are used.
-
-
-    // HANA BI styling prefrences.
-    "continue"      : true,
-    "newcap"        : true,   // Require capitalization of all constructor functions e.g. `new F()`.
-    "noempty"       : true,   // Prohibit use of empty blocks.
-    "nonew"         : true,   // Prohibit use of constructors for side-effects.
-    "nomen"         : false,  // Allow use of initial or trailing underbars in names.
-    "onevar"        : false,  // Allow only one `var` statement per function.
-    "plusplus"      : false,  // Prohibit use of `++` & `--`.
-    "sloppy"        : true,
-    "sub"           : false,  // Tolerate all forms of subscript notation besides dot notation e.g. `dict['key']` instead of `dict.key`.
-    "trailing"      : true,   // Prohibit trailing whitespaces.
-    "vars"          : true,
-    "white"         : false   // Don't check against strict whitespace and indentation rules.
+    "undef"         : true    // Require all non-global variables be declared before they are used.
 }
-
