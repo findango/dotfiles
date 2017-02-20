@@ -108,7 +108,7 @@ nnoremap <leader>ev <C-w><C-s><C-l>:e $MYVIMRC<CR>
 nnoremap <leader>evl <C-w><C-s><C-l>:e $MYVIMRC.local<CR>
 
 " underline
-nnoremap <leader>u yypVr-
+nnoremap <leader>ul yypVr-
 
 " fix line ends
 nnoremap <leader>n :%s/\r/\n/g<CR>
