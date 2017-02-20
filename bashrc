@@ -8,11 +8,6 @@ if [ -f /etc/bashrc ]; then
     . /etc/bashrc
 fi
 
-# fancy git prompts
-function git_branch {
-  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
-}
-
 # aliases
 alias cd..='cd ..'
 alias ..='cd ..'
@@ -58,13 +53,9 @@ unset MANPATH
 export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
 
 # Splunk >
-export SPLUNK_HOME=~/splunk/current
-export SPLUNK_SOURCE=~/Projects/splunk_src
-PATH="$PATH:$SPLUNK_HOME/bin"
-
-# Groovy
-# export GROOVY_HOME=/Library/Groovy/Home
-# $GROOVY_HOME/bin:\
+#export SPLUNK_HOME=~/splunk/current
+#export SPLUNK_SOURCE=~/Projects/splunk_src
+#PATH="$PATH:$SPLUNK_HOME/bin"
 
 # path
 export JAVA_HOME=/Library/Java/Home
@@ -79,6 +70,10 @@ export PATH=$PATH:\
 /System/Library/Frameworks/Python.framework/Versions/2.3/bin:\
 /usr/local/git/bin
 
+# fancy git prompts
+function git_branch {
+    git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
 
 function prompt {
     # see http://blog.bigdinosaur.org/easy-ps1-colors/
