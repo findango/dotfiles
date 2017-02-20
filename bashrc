@@ -14,6 +14,7 @@ function git_branch {
 }
 
 # aliases
+alias cd..='cd ..'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
@@ -23,14 +24,15 @@ alias mv='mv -i'
 alias md='mkdir -p'
 alias h='history 25'
 alias j='jobs -l'
-alias ll='ls -lh'
-alias la='ls -lah'
+alias ll='ls -oh'
+alias la='ls -oah'
 alias cpwd='pwd | xargs echo-n | pbcopy'
 alias reload='. ~/.bash_profile'
 alias df='df -h'
 alias rot13='tr a-zA-Z n-za-mN-ZA-M'
 alias cls=clear
 alias finder='open -a finder `pwd`'
+alias yar=yarn
 
 # hide/show all desktop icons (useful when presenting)
 alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
@@ -98,6 +100,6 @@ function prompt {
     local WHITEBOLD="\[\033[1;37m\]"
     local NORMAL="\[\033[00m\]"
 
-    export PS1="\[\033[0;32m\]\w \$(git_branch)\n\\$ \[\033[0m\]"
+    export PS1="$GREEN\w $GREENBOLD\$(git_branch)$GREEN\n\\$ $NORMAL"
 }
 prompt

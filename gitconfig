@@ -9,6 +9,7 @@
 
 [core]
     excludesfile = ~/.gitignore
+	editor = /usr/bin/vim
 
 [alias]
     br = branch
@@ -36,6 +37,8 @@
 	trustExitCode = true
     
 [push]
+    # 'git push' will push the current branch to its tracking branch
+    # the usual default is to push all branches
 	default = upstream
 
 [diff]
