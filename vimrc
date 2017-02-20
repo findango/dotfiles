@@ -67,6 +67,10 @@ map Y y$
 vnoremap < <gv
 vnoremap > >gv
 
+" allow the . repeat operator to work with a visual selection (!)
+" http://stackoverflow.com/a/8064607/127816
+vnoremap . :normal .<CR>
+
 " autocomplete when opening files. Behaves somewhat similarly to bash.
 set wildignore=*.bak,*.swp,*.pyc,*.o,*.obj,*.dll,*.exe
 set wildmenu
