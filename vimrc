@@ -239,6 +239,19 @@ if has("autocmd")
     autocmd bufwritepost .vimrc.local source $MYVIMRC
 endif
 
+" handle paste automatically to avoid indenting
+let &t_SI .= "\<Esc>[?2004h"
+let &t_EI .= "\<Esc>[?2004l"
+
+inoremap <special> <expr> <Esc>[200~ XTermPasteBegin()
+
+function! XTermPasteBegin()
+  set pastetoggle=<Esc>[201~
+  set paste
+  return ""
+endfunction
+
+
 " load any local settings
 if filereadable(expand("~/.vimrc.local"))
     source ~/.vimrc.local
