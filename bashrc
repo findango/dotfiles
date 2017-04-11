@@ -62,13 +62,15 @@ export JAVA_HOME=/Library/Java/Home
 export ANT_HOME=/sw/lib/ant
 export CCL_DEFAULT_DIRECTORY=/Library/ccl/scripts
 
-export PATH=$PATH:\
+export PATH=\
 ~/bin:\
 /usr/local/bin:\
 /opt/local/bin:\
 /usr/local/mysql/bin:\
 /System/Library/Frameworks/Python.framework/Versions/2.3/bin:\
-/usr/local/git/bin
+/usr/local/git/bin:\
+$PATH
+
 
 # fancy git prompts
 function git_branch {
