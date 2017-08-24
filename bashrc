@@ -12,8 +12,6 @@ fi
 alias cd..='cd ..'
 alias ..='cd ..'
 alias ...='cd ../..'
-alias ....='cd ../../..'
-alias :q='exit'  # habits are hard to break
 alias rm='rm -i'
 alias mv='mv -i'
 alias md='mkdir -p'
@@ -21,13 +19,19 @@ alias h='history 25'
 alias j='jobs -l'
 alias ll='ls -oh'
 alias la='ls -oah'
+alias df='df -h'
+alias cls=clear
+
+# typos
+alias :q='exit'  # habits are hard to break
+alias yar=yarn
+
+# helpers
 alias cpwd='pwd | xargs echo-n | pbcopy'
 alias reload='. ~/.bash_profile'
-alias df='df -h'
 alias rot13='tr a-zA-Z n-za-mN-ZA-M'
-alias cls=clear
 alias finder='open -a finder `pwd`'
-alias yar=yarn
+alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | printf '=> Public key copied to pasteboard.\n'"
 
 # hide/show all desktop icons (useful when presenting)
 alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
@@ -44,18 +48,20 @@ export HISTCONTROL=ignoredups  # don't put duplicate lines in the history
 export HISTIGNORE="ls:ll:la:pwd:clear:h:history:j:* --help"  # ignore common minor commands
 shopt -s histappend  # append to the history file rather than overwriting
 
+# Check the window size after each command, update LINES and COLUMNS
+shopt -s checkwinsize
+
 # npm
 NPM_PACKAGES="${HOME}/.npm-packages"
 PATH="$NPM_PACKAGES/bin:$PATH"
 # Unset manpath so we can inherit from /etc/manpath via the `manpath` command
 # delete if you already modified MANPATH elsewhere in your config
-unset MANPATH 
+unset MANPATH
 export MANPATH="$NPM_PACKAGES/share/man:$(manpath)"
 
-# Splunk >
-#export SPLUNK_HOME=~/splunk/current
-#export SPLUNK_SOURCE=~/Projects/splunk_src
-#PATH="$PATH:$SPLUNK_HOME/bin"
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # path
 export JAVA_HOME=/Library/Java/Home
@@ -100,3 +106,8 @@ function prompt {
     export PS1="$GREEN\w $GREENBOLD\$(git_branch)$GREEN\n\\$ $NORMAL"
 }
 prompt
+
+# source any machine local defs
+if [ -f ~/.bashrc_local ]; then
+    . ~/.bashrc_local
+fi
