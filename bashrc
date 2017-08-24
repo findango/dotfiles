@@ -9,9 +9,6 @@ if [ -f /etc/bashrc ]; then
 fi
 
 # aliases
-alias cd..='cd ..'
-alias ..='cd ..'
-alias ...='cd ../..'
 alias rm='rm -i'
 alias mv='mv -i'
 alias md='mkdir -p'
@@ -23,6 +20,7 @@ alias df='df -h'
 alias cls=clear
 
 # typos
+alias cd..='cd ..'
 alias :q='exit'  # habits are hard to break
 alias yar=yarn
 
@@ -32,10 +30,18 @@ alias reload='. ~/.bash_profile'
 alias rot13='tr a-zA-Z n-za-mN-ZA-M'
 alias finder='open -a finder `pwd`'
 alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | printf '=> Public key copied to pasteboard.\n'"
+alias copy='pbcopy'
+alias paste='pbpaste'
 
 # hide/show all desktop icons (useful when presenting)
 alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
 alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
+
+# folders
+alias ..='cd ..'
+alias ....='cd ../..'
+alias proj='cd ~/Projects'
+alias drop='cd ~/Dropbox'
 
 # optional behaviour
 export PAGER=less
