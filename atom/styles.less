@@ -23,11 +23,49 @@
 // style the background and foreground colors on the atom-text-editor-element itself
 atom-text-editor {
   // color: white;
-  // background-color: #efefef;
+  // background-color: hsl(180, 24%, 12%);
 }
 
-// To style other content in the text editor's shadow DOM, use the ::shadow expression
-atom-text-editor::shadow .cursor {
-  border-width: 2px;
-  border-color: @text-color-info;
+// style UI elements inside atom-text-editor
+atom-text-editor.editor {
+    .cursor {
+        border-color: #42b3f4;
+    }
+
+    .bracket-matcher {
+        border-bottom: 1px solid #42b3f4;
+        position: absolute;
+        // border: 1px solid rgba(0, 255, 0, 0.7);
+        background-color: rgba(0, 255, 0, 0.3);
+        z-index: 100;
+    }
+
+    .indent-guide {
+        box-shadow: inset 1px 0 0 #edeae6;
+    }
+
+    .linter-highlight .region {
+        z-index: 1;
+    }
+
+    .wrap-guide {
+        background-color: #edeae6;
+    }
 }
+
+
+// .indent-guide-improved {
+//     // background-color: #edeae6;
+//     background-color: white;
+//
+//     &.indent-guide-stack {
+//         // background-color: #fff0d8;
+//         background-color: #edeae6;
+//
+//         &.indent-guide-active {
+//             // background-color: #f9d59f;
+//             // background-color: #42b3f4;
+//             background-color: #edeae6;
+//         }
+//     }
+// }
