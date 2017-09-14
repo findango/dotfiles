@@ -40,8 +40,9 @@ alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && k
 # folders
 alias ..='cd ..'
 alias ....='cd ../..'
-alias proj='cd ~/Projects'
+alias desk='cd ~/Desktop'
 alias drop='cd ~/Dropbox'
+alias proj='cd ~/Projects'
 
 # optional behaviour
 export PAGER=less
