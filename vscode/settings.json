@@ -1,0 +1,18 @@
+// Place your settings in this file to overwrite the default settings
+{
+    "editor.fontFamily": "Inconsolata, Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontSize": 13,
+    "editor.lineHeight": 18,
+    "editor.scrollBeyondLastLine": false,    
+    "gitlens.blame.line.enabled": false,
+    "workbench.colorTheme": "GitHub Clean White",
+    "workbench.colorCustomizations": {
+        "editorLineNumber.foreground": "#edeae6",
+        "editorCursor.foreground": "#42b3f4",
+        "editor.lineHighlightBackground": "#f5f5f5",
+        "editorBracketMatch.background": "#b2ffb2",
+        "editorBracketMatch.border": "#42b3f4",
+        "editorIndentGuide.background": "#edeae6",
+        "editorCodeLens.foreground": "#42b3f4"
+    }
+}
