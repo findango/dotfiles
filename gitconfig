@@ -1,6 +1,6 @@
 [user]
 	name = Finlay Cannon
-	email = 
+	useConfigOnly = true
 
 [color]
     diff = auto
