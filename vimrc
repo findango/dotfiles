@@ -40,7 +40,7 @@ set autochdir          " automatically cd to the current file's dir
 set clipboard=unnamed  " use the OS clipboard by default
 "set nofsync
 set laststatus=2       " always show the status line
-set listchars=tab:>.,trail:.,extends:#,nbsp:.
+set listchars=tab:>.,trail:.,extends:>,precedes:<,nbsp:.,eol:$
 
 " tabs
 set tabstop=4
@@ -149,11 +149,12 @@ map Q gq
 if &t_Co > 2 || has("gui_running")
     syntax on
     set bg=dark
-    
+
     colorscheme twilight
     hi Cursor guibg=#96B2CD
     hi MatchParen gui=none guibg=#52665C
-    hi LineNr guibg=#0d0d0d
+    "hi LineNr guibg=#0d0d0d
+    hi LineNr guibg=#1a1a1a
     hi Search guibg=#fcf75e
     hi link NERDTreeRO Comment
 endif
@@ -165,7 +166,7 @@ endif
 
 
 " Only do this part when compiled with support for autocommands.
-if has("autocmd")
+"if has("autocmd")
     " Enable file type detection.
     " Use the default filetype settings, so that mail gets 'tw' set to 72,
     " 'cindent' is on in C files, etc.
@@ -182,7 +183,7 @@ if has("autocmd")
 
     " Treat .json files as .js
     autocmd BufNewFile,BufRead *.json setfiletype json syntax=javascript
-    
+
     " tab settings for specific filetypes
     autocmd FileType html setlocal ts=4 sts=4 sw=4 expandtab number
     autocmd FileType javascript setlocal ts=4 sts=4 sw=4 expandtab number
@@ -196,12 +197,14 @@ if has("autocmd")
         \ endif
 
     augroup END
-else
+"else
     " always set autoindenting on
-    set autoindent
-endif
+"    set autoindent
+"endif
+
 
 " ctrlp.vim
+set runtimepath^=~/.vim/bundle/ctrlp.vim
 let g:ctrlp_map = '<Leader>]'
 let g:ctrlp_match_window_bottom = 0
 let g:ctrlp_match_window_reversed = 0
@@ -210,6 +213,10 @@ let g:ctrlp_working_path_mode = 'ra'
 let g:ctrlp_dotfiles = 0
 let g:ctrlp_switch_buffer = 0
 "nmap ; :CtrlPBuffer<CR>
+
+" taglist.vim
+let Tlist_Use_Right_Window = 1
+let Tlist_WinWidth = 30
 
 " syntastic
 let g:syntastic_enable_signs=1

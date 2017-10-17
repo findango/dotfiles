@@ -8,12 +8,8 @@ if [ -f /etc/bashrc ]; then
     . /etc/bashrc
 fi
 
-# fancy git prompts
-function git_branch {
-  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
-}
-
 # aliases
+alias cd..='cd ..'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias ....='cd ../../..'
@@ -52,6 +48,11 @@ export JAVA_HOME=/Library/Java/Home
 export ANT_HOME=/sw/lib/ant
 export GROOVY_HOME=/Library/Groovy/Home
 export CCL_DEFAULT_DIRECTORY=/Library/ccl/scripts
+#export MAGICK_HOME=/usr/local/ImageMagick-6.8.7
+#export DYLD_LIBRARY_PATH="$MAGICK_HOME/lib/"
+
+export NVM_DIR="/Users/finlay/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 export PATH=$PATH:\
 ~/bin:\
@@ -60,7 +61,35 @@ export PATH=$PATH:\
 /usr/local/mysql/bin:\
 /System/Library/Frameworks/Python.framework/Versions/2.3/bin:\
 $GROOVY_HOME/bin:\
-/usr/local/git/bin
+/usr/local/git/bin:\
+~/.rvm/bin # Add RVM to PATH for scripting
+
+
+# tree
+if [ ! -x "$(which tree 2>/dev/null)" ]
+then
+  alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
+fi
+
+# prompt
+# define the awk script using heredoc notation for easy modification
+MYPSDIR_AWK=$(cat << 'EOF'
+BEGIN { FS = OFS = "/" }
+{
+   if (length($0) > 16 && NF > 4)
+      print $1,$2,".." NF-4 "..",$(NF-1),$NF
+   else
+      print $0
+}
+EOF
+)
+
+# my replacement for \w prompt expansion
+export MYPSDIR='$(echo -n "${PWD/#$HOME/~}" | awk "$MYPSDIR_AWK")'
+
+function git_branch {
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
 
 function prompt {
     # see http://blog.bigdinosaur.org/easy-ps1-colors/
@@ -83,7 +112,7 @@ function prompt {
     local NORMAL="\[\033[00m\]"
 
     #export PS1="\n$BLACKBOLD[\t]$GREENBOLD \u@\h\[\033[00m\]:$BLUEBOLD\w\[\033[00m\] \\$ "
-    export PS1="\[\033[0;32m\]\h:\W \$(git_branch)\\$ \[\033[0m\]"
+    export PS1="\[\033[0;32m\]\w \$(git_branch)\n\\$ \[\033[0m\]"
 }
 prompt
 

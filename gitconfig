@@ -8,7 +8,9 @@
     branch = auto
 
 [core]
-	excludesfile = /Users/finlay/.gitignore
+    excludesfile = ~/.gitignore
+	quotepath = false
+	editor = /usr/bin/vim
 
 [alias]
     br = branch
@@ -29,7 +31,7 @@
 
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+	path =
 
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
