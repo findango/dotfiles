@@ -1,6 +1,6 @@
 [user]
-    name = Finlay Cannon
-    email = fin@finlaycannon.com
+	name = Finlay Cannon
+	email = fin@finlaycannon.com
 
 [color]
     diff = auto
@@ -8,7 +8,7 @@
     branch = auto
 
 [core]
-    excludesfile = ~/.gitignore
+	excludesfile = /Users/finlay/.gitignore
 
 [alias]
     br = branch
@@ -35,3 +35,5 @@
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
 
+[commit]
+	template = /Users/finlay/.stCommitMsg
