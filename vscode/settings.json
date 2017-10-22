@@ -1,0 +1,28 @@
+// Place your settings in this file to overwrite the default settings
+{
+    // https://code.visualstudio.com/docs/getstarted/theme-color-reference
+    "workbench.colorTheme": "GitHub Clean White",
+    "workbench.iconTheme": "vs-minimal",
+    "workbench.colorCustomizations": {
+        "editorLineNumber.foreground": "#edeae6",
+        "editorCursor.foreground": "#42b3f4",
+        "editor.lineHighlightBackground": "#f5f5f5",
+        "editorBracketMatch.background": "#b2ffb2",
+        "editorBracketMatch.border": "#42b3f4",
+        "editorIndentGuide.background": "#ceeaf8"
+    },
+
+    "editor.fontFamily": "Inconsolata, Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontSize": 13,
+    "editor.lineHeight": 18,
+    "editor.scrollBeyondLastLine": false,
+    "editor.wordWrapColumn": 100,
+    "editor.rulers": [100],
+    "editor.wrappingIndent": "indent",
+
+    "explorer.openEditors.visible": 7,
+    "extensions.ignoreRecommendations": false,
+    "eslint.run": "onSave",
+    "files.trimTrailingWhitespace": te,
+    "gitlens.blame.line.enabled": false
+}

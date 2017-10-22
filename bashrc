@@ -9,28 +9,40 @@ if [ -f /etc/bashrc ]; then
 fi
 
 # aliases
-alias cd..='cd ..'
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias :q='exit'  # habits are hard to break
 alias rm='rm -i'
 alias mv='mv -i'
 alias md='mkdir -p'
 alias h='history 25'
 alias j='jobs -l'
-alias ll='ls -lh'
-alias la='ls -lah'
+alias ll='ls -oh'
+alias la='ls -oah'
+alias df='df -h'
+alias cls=clear
+
+# typos
+alias cd..='cd ..'
+alias :q='exit'  # habits are hard to break
+alias yar=yarn
+
+# helpers
 alias cpwd='pwd | xargs echo-n | pbcopy'
 alias reload='. ~/.bash_profile'
-alias df='df -h'
 alias rot13='tr a-zA-Z n-za-mN-ZA-M'
-alias cls=clear
 alias finder='open -a finder `pwd`'
+alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | printf '=> Public key copied to pasteboard.\n'"
+alias copy='pbcopy'
+alias paste='pbpaste'
 
 # hide/show all desktop icons (useful when presenting)
 alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
 alias showdesktop="defaults write com.apple.finder CreateDesktop -bool true && killall Finder"
+
+# folders
+alias ..='cd ..'
+alias ....='cd ../..'
+alias desk='cd ~/Desktop'
+alias drop='cd ~/Dropbox'
+alias proj='cd ~/Projects'
 
 # optional behaviour
 export PAGER=less
@@ -39,14 +51,16 @@ export EDITOR=vi
 export CLICOLOR=1 # color ls
 
 # history settings
-export HISTCONTROL=ignoredups                         # don't put duplicate lines in the history
-export HISTIGNORE="ls:ll:la:pwd:clear:h:j:* --help"   # ignore common minor commands
-shopt -s histappend                                   # append to the history file rather than overwriting
+export HISTCONTROL=ignoredups  # don't put duplicate lines in the history
+export HISTIGNORE="ls:ll:la:pwd:clear:h:history:j:* --help"  # ignore common minor commands
+shopt -s histappend  # append to the history file rather than overwriting
+
+# Check the window size after each command, update LINES and COLUMNS
+shopt -s checkwinsize
 
 # path
 export JAVA_HOME=/Library/Java/Home
 export ANT_HOME=/sw/lib/ant
-export GROOVY_HOME=/Library/Groovy/Home
 export CCL_DEFAULT_DIRECTORY=/Library/ccl/scripts
 #export MAGICK_HOME=/usr/local/ImageMagick-6.8.7
 #export DYLD_LIBRARY_PATH="$MAGICK_HOME/lib/"
@@ -54,41 +68,24 @@ export CCL_DEFAULT_DIRECTORY=/Library/ccl/scripts
 export NVM_DIR="/Users/finlay/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
-export PATH=$PATH:\
+export PATH=\
 ~/bin:\
 /usr/local/bin:\
 /opt/local/bin:\
 /usr/local/mysql/bin:\
 /System/Library/Frameworks/Python.framework/Versions/2.3/bin:\
-$GROOVY_HOME/bin:\
 /usr/local/git/bin:\
-~/.rvm/bin # Add RVM to PATH for scripting
+$PATH
+
+# npm (do after PATH settings because this modifies the PATH)
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 
-# tree
-if [ ! -x "$(which tree 2>/dev/null)" ]
-then
-  alias tree="find . -print | sed -e 's;[^/]*/;|____;g;s;____|; |;g'"
-fi
-
-# prompt
-# define the awk script using heredoc notation for easy modification
-MYPSDIR_AWK=$(cat << 'EOF'
-BEGIN { FS = OFS = "/" }
-{
-   if (length($0) > 16 && NF > 4)
-      print $1,$2,".." NF-4 "..",$(NF-1),$NF
-   else
-      print $0
-}
-EOF
-)
-
-# my replacement for \w prompt expansion
-export MYPSDIR='$(echo -n "${PWD/#$HOME/~}" | awk "$MYPSDIR_AWK")'
-
+# fancy git prompts
 function git_branch {
-  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+    git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
 }
 
 function prompt {
@@ -111,8 +108,11 @@ function prompt {
     local WHITEBOLD="\[\033[1;37m\]"
     local NORMAL="\[\033[00m\]"
 
-    #export PS1="\n$BLACKBOLD[\t]$GREENBOLD \u@\h\[\033[00m\]:$BLUEBOLD\w\[\033[00m\] \\$ "
-    export PS1="\[\033[0;32m\]\w \$(git_branch)\n\\$ \[\033[0m\]"
+    export PS1="$GREEN\w $GREENBOLD\$(git_branch)$GREEN\n\\$ $NORMAL"
 }
 prompt
 
+# source any machine local defs
+if [ -f ~/.bashrc_local ]; then
+    . ~/.bashrc_local
+fi
