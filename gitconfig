@@ -12,30 +12,66 @@
 	editor = /usr/bin/vim
 
 [alias]
-    br = branch
-    ci = commit
+    # checkout
     co = checkout
-    st = status -s
+    br = checkout -b
+
+    # staging
+    aa = add --all
+
+    # commits
+    ca = commit -a
+    cm = commit -m
+    cam = !git add -A && git commit -m
+    amend = commit -a --amend
+
+    # diff
+    vdiff = difftool --dir-diff
+
+    # status
     stat = status
+    st = status
+    s = status -s
+    lg = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
+    lgl = log --stat --abbrev-commit
+    ignore = update-index --assume-unchanged
+    unignore = update-index --no-assume-unchanged
+    ignored = !git ls-files -v | grep ^h | cut -c 3-
+
+    # branches
+    ls = !git branch && echo # list branch names
+    ll = !tput rmam && git branch -v && echo && tput smam # list branches with last commit, no wrapping in the terminal
+
+    # stash everything to be safe
+    wip = !git add -A && git commit -m "WIP"
+
+    # soft undo the last commit, keep changes in working dir
+    # hard reset and discard any changes
+    rollback = reset HEAD~1 --mixed
+    discard = ![[ -z "$@" ]] && git reset --hard HEAD || git checkout HEAD
+
+    # list aliases
+    la = "!git config -l | grep alias | cut -c 7-"
+
     stage = !sh -c '[[ -z "$@" ]] && git add -u || git add "$@" && git add -u "$@" ' -
     unstage = reset HEAD --
     unadd = rm -r --cached --
-    rewind = ![[ -z "$@" ]] && git reset --hard HEAD || git checkout HEAD
-    ls = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate
-    ll = log --pretty=format:"%C(yellow)%h%Cred%d\\ %Creset%s%Cblue\\ [%cn]" --decorate --numstat
-    last = log -1 HEAD
+    lastcommit = log -1 HEAD
+
+    # find commits that included a given string
+    find = !git log --reverse --color -S 
+
+    # pull requests - pr = bitbucket/stash, ghpr = github
+    pr  = "!f() { git fetch -fu ${2:-$(git remote |grep ^upstream || echo origin)} refs/pull-requests/$1/from:pr/$1 && git checkout pr/$1; }; f"
+    ghpr  = "!f() { git fetch -fu ${2:-$(git remote |grep ^upstream || echo origin)} refs/pull/$1/head:pr/$1 && git checkout pr/$1; }; f"
+    pr-clean = "!git for-each-ref refs/heads/pr/* --format='%(refname)' | while read ref ; do branch=${ref#refs/heads/} ; git branch -D $branch ; done"
 
 [github]
     user = findango
 
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
+[credential]
+    helper = store
 
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
-    
 [push]
     # 'git push' will push the current branch to its tracking branch
     # the usual default is to push all branches
@@ -47,3 +83,29 @@
 [difftool]
     prompt = false
 
+[difftool "bc3"]
+	trustExitCode = true
+
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+
+[difftool "sourcetree"]
+	cmd = /usr/local/bin/ksdiff -w \"$LOCAL\" \"$REMOTE\"
+	path =
+
+[merge]
+	tool = Kaleidoscope
+
+[mergetool]
+	prompt = false
+
+[mergetool "Kaleidoscope"]
+	cmd = ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustexitcode = true
+
+[mergetool "sourcetree"]
+	cmd = /usr/local/bin/ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
+	trustExitCode = true
+
+[commit]
+	template = /Users/fcannon/.stCommitMsg
