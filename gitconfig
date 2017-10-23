@@ -9,7 +9,7 @@
 
 [core]
     excludesfile = ~/.gitignore
-	editor = /usr/bin/vim
+    editor = /usr/bin/vim
 
 [alias]
     # checkout
@@ -107,5 +107,3 @@
 	cmd = /usr/local/bin/ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
 	trustExitCode = true
 
-[commit]
-	template = /Users/fcannon/.stCommitMsg

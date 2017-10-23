@@ -62,6 +62,11 @@ shopt -s checkwinsize
 export JAVA_HOME=/Library/Java/Home
 export ANT_HOME=/sw/lib/ant
 export CCL_DEFAULT_DIRECTORY=/Library/ccl/scripts
+#export MAGICK_HOME=/usr/local/ImageMagick-6.8.7
+#export DYLD_LIBRARY_PATH="$MAGICK_HOME/lib/"
+
+export NVM_DIR="/Users/finlay/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 export PATH=\
 ~/bin:\
