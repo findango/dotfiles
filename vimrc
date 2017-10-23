@@ -146,7 +146,7 @@ if &t_Co > 2 || has("gui_running")
     syntax on
     set bg=dark
     
-    colorscheme twilight
+    "colorscheme twilight
     hi Cursor guibg=#96B2CD
     hi MatchParen gui=none guibg=#52665C
     hi LineNr guibg=#0d0d0d
