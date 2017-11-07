@@ -37,6 +37,7 @@
     ignore = update-index --assume-unchanged
     unignore = update-index --no-assume-unchanged
     ignored = !git ls-files -v | grep ^h | cut -c 3-
+    last = log -1 HEAD
 
     # branches
     ls = !git branch && echo # list branch names
@@ -46,8 +47,8 @@
     wip = !git add -A && git commit -m "WIP"
 
     # soft undo the last commit, keep changes in working dir
-    # hard reset and discard any changes
     rollback = reset HEAD~1 --mixed
+    # hard reset and discard any changes
     discard = ![[ -z "$@" ]] && git reset --hard HEAD || git checkout HEAD
 
     # list aliases
@@ -56,10 +57,9 @@
     stage = !sh -c '[[ -z "$@" ]] && git add -u || git add "$@" && git add -u "$@" ' -
     unstage = reset HEAD --
     unadd = rm -r --cached --
-    lastcommit = log -1 HEAD
 
     # find commits that included a given string
-    find = !git log --reverse --color -S 
+    find = !git log --reverse --color -S
 
     # pull requests - pr = bitbucket/stash, ghpr = github
     pr  = "!f() { git fetch -fu ${2:-$(git remote |grep ^upstream || echo origin)} refs/pull-requests/$1/from:pr/$1 && git checkout pr/$1; }; f"
