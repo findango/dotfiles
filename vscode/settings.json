@@ -1,29 +1,31 @@
 {
     // https://code.visualstudio.com/docs/getstarted/theme-color-reference
-    "workbench.colorTheme": "GitHub Clean White",
+    //"workbench.colorTheme": "GitHub Clean White",
+    "workbench.colorTheme": "Alabaster",
     "workbench.iconTheme": "vs-minimal",
     "workbench.colorCustomizations": {
         "editorLineNumber.foreground": "#edeae6",
         "editorCursor.foreground": "#42b3f4",
         "editor.lineHighlightBackground": "#f5f5f5",
         "editorBracketMatch.background": "#b2ffb2",
-        "editorBracketMatch.border": "#42b3f4",
-        "editorIndentGuide.background": "#ceeaf8"
+        "editorBracketMatch.border": "#b2ffb2",
+        "editorIndentGuide.background": "#ceeaf8",
+        "editor.selectionHighlightBackground": "#edeae6",
+        "editor.wordHighlightBackground": "#ceeaf8"
     },
-
     "editor.fontFamily": "Inconsolata, Menlo, Monaco, 'Courier New', monospace",
     "editor.fontSize": 13,
     "editor.lineHeight": 18,
-    "editor.rulers": [100],
+    "editor.rulers": [
+        100
+    ],
     "editor.scrollBeyondLastLine": false,
     "editor.wordWrapColumn": 100,
     "editor.wrappingIndent": "indent",
-
     "eslint.run": "onSave",
     "explorer.openEditors.visible": 7,
     "extensions.ignoreRecommendations": false,
     "gitlens.blame.line.enabled": false,
-
     // automatic formatting
     "editor.formatOnSave": true,
     "files.trimTrailingWhitespace": true,
@@ -31,7 +33,6 @@
     "prettier.tabWidth": 4,
     "prettier.singleQuote": true,
     "prettier.trailingComma": "es5",
-
     // file search
     "files.exclude": {
         "**/.git": true,
@@ -39,7 +40,9 @@
         "**/.hg": true,
         "**/CVS": true,
         "**/.DS_Store": true,
-        "**/node_modules": true
+        "**/node_modules": true,
+        "*-debug.log": true,
+        "*-error.log": true
     },
     "search.exclude": {
         "**/node_modules": true,
@@ -47,5 +50,26 @@
         "app-metrics-page/stage": true,
         "**/__snapshots__": true
     },
-    "search.useIgnoreFilesByDefault": true
+    "search.useIgnoreFilesByDefault": true,
+    "workbench.startupEditor": "newUntitledFile",
+    "explorer.confirmDragAndDrop": false,
+    "workbench.panel.location": "right",
+    "gitlens.advanced.messages": {
+        "suppressCommitHasNoPreviousCommitWarning": false,
+        "suppressCommitNotFoundWarning": false,
+        "suppressFileNotUnderSourceControlWarning": false,
+        "suppressGitVersionWarning": false,
+        "suppressLineUncommittedWarning": false,
+        "suppressNoRepositoryWarning": false,
+        "suppressResultsExplorerNotice": true,
+        "suppressShowKeyBindingsNotice": true,
+        "suppressUpdateNotice": false,
+        "suppressWelcomeNotice": true
+    },
+    "window.zoomLevel": 0,
+    "terminal.integrated.fontSize": 13,
+    "window.title": "$${activeEditorMedium}${separator}${rootName}",
+    "gitlens.currentLine.enabled": false,
+    "gitlens.hovers.currentLine.enabled": false,
+    "gitlens.keymap": "chorded",
 }
