@@ -26,7 +26,8 @@
     amend = commit -a --amend
 
     # diff
-    vdiff = difftool --dir-diff
+    vdiff = difftool --dir-diff --symlinks
+    difftool = difftool --symlinks
 
     # status
     stat = status
@@ -60,6 +61,7 @@
 
     # find commits that included a given string
     find = !git log --reverse --color -S
+    contains = branch --contains
 
     # pull requests - pr = bitbucket/stash, ghpr = github
     pr  = "!f() { git fetch -fu ${2:-$(git remote |grep ^upstream || echo origin)} refs/pull-requests/$1/from:pr/$1 && git checkout pr/$1; }; f"
