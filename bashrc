@@ -52,7 +52,7 @@ export CLICOLOR=1 # color ls
 
 # history settings
 export HISTCONTROL=ignoredups  # don't put duplicate lines in the history
-export HISTIGNORE="ls:ll:la:pwd:clear:h:history:j:* --help"  # ignore common minor commands
+export HISTIGNORE="ls:ll:la:pwd:clear:h:history:j:* --help:cd ..:..:"  # ignore common minor commands
 shopt -s histappend  # append to the history file rather than overwriting
 
 # Check the window size after each command, update LINES and COLUMNS
