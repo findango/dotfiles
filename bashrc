@@ -52,7 +52,7 @@ export CLICOLOR=1 # color ls
 
 # history settings
 export HISTCONTROL=ignoredups  # don't put duplicate lines in the history
-export HISTIGNORE="ls:ll:la:pwd:clear:h:history:j:* --help:cd ..:..:"  # ignore common minor commands
+export HISTIGNORE="ls:ll:la:pwd:clear:cls:h:history:j:* --help:cd ..:..:"  # ignore common minor commands
 shopt -s histappend  # append to the history file rather than overwriting
 
 # Check the window size after each command, update LINES and COLUMNS
@@ -79,9 +79,10 @@ $PATH
 
 # npm (do after PATH settings because this modifies the PATH)
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
+#[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/usr/local/opt/nvm/etc/bash_completion" ] && . "/usr/local/opt/nvm/etc/bash_completion"  # This loads nvm bash_completion
 
 # fancy git prompts
 function git_branch {
