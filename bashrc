@@ -18,6 +18,7 @@ alias ll='ls -oh'
 alias la='ls -oah'
 alias df='df -h'
 alias cls=clear
+alias tree='tree -I node_modules'
 
 # typos
 alias cd..='cd ..'
