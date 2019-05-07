@@ -33,6 +33,7 @@ alias finder='open -a finder `pwd`'
 alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | printf '=> Public key copied to pasteboard.\n'"
 alias copy='pbcopy'
 alias paste='pbpaste'
+alias finished="say \"ding ding, it's finished!\""
 
 # hide/show all desktop icons (useful when presenting)
 alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
