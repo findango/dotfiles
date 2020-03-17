@@ -34,6 +34,7 @@ alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | printf '=> Public key copied to 
 alias copy='pbcopy'
 alias paste='pbpaste'
 alias finished="say \"ding ding, it's finished!\""
+alias prettier-json='python -m json.tool'
 
 # hide/show all desktop icons (useful when presenting)
 alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
