@@ -6,10 +6,28 @@
 
 set nocompatible
 
-" load bundles from ~/.vim/bundle
-filetype off
-call pathogen#infect()
-filetype plugin indent on
+" Load plugins
+" - For Neovim: stdpath('data') . '/plugged'
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
+
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+Plug 'https://github.com/terryma/vim-expand-region'
+call expand_region#custom_text_objects({
+      \ 'a]' :1,
+      \ 'ab' :1,
+      \ 'aB' :1
+      \ })
+
+" Plug 'arcticicestudio/nord-vim'
+Plug 'https://github.com/Canop/patine'
+call plug#end()
+
+nnoremap <silent><C-p> :CtrlSpace O<CR>
+nnoremap <leader>f :Files<cr>
+nnoremap <leader>b :Buffers<cr>
 
 " do syntax highlighting from the start of the file to avoid quirks
 autocmd BufEnter * :syntax sync fromstart
@@ -20,10 +38,11 @@ vmap <BS> x
 
 " general stuff
 set encoding=utf-8
-"set hidden             " make vim work like every other editor
+set hidden             " make vim work like every other editor
 set nobackup           " no backup files please
 set history=50
 set ruler              " show cursor position
+set number
 set showcmd
 set laststatus=2       " always show the status line
 set autoindent
@@ -150,7 +169,7 @@ if &t_Co > 2 || has("gui_running")
     syntax on
     set bg=dark
 
-    "colorscheme twilight
+    colorscheme patine
     hi Cursor guibg=#96B2CD
     hi MatchParen gui=none guibg=#52665C
     hi LineNr guibg=#1a1a1a

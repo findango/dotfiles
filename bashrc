@@ -116,7 +116,9 @@ function prompt {
 }
 prompt
 
-# source any machine local defs
-if [ -f ~/.bashrc_local ]; then
-    . ~/.bashrc_local
-fi
+# fuzzy finder
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+
+# any machine local defs
+[ -f ~/.bashrc_local ] && source ~/.bashrc_local
+
