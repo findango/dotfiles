@@ -43,6 +43,7 @@
     # branches
     ls = !git branch && echo # list branch names
     ll = !tput rmam && git branch -v && echo && tput smam # list branches with last commit, no wrapping in the terminal
+    merged = !git branch -r --merged | grep -v HEAD | xargs -L1 git --no-pager log --pretty=tformat:'%Cgreen%d%Creset - %h by %an (%Cblue%ar%Creset)' -1
 
     # stash everything to be safe
     wip = !git add -A && git commit -m "WIP"
