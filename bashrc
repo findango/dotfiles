@@ -35,6 +35,7 @@ alias copy='pbcopy'
 alias paste='pbpaste'
 alias finished="say \"ding ding, it's finished!\""
 alias prettier-json='python -m json.tool'
+alias dc='docker-compose'
 
 # hide/show all desktop icons (useful when presenting)
 alias hidedesktop="defaults write com.apple.finder CreateDesktop -bool false && killall Finder"
@@ -54,7 +55,7 @@ export EDITOR=vi
 export CLICOLOR=1 # color ls
 
 # history settings
-export HISTCONTROL=ignoredups  # don't put duplicate lines in the history
+export HISTCONTROL=ignoreboth:erasedups  # don't put duplicate lines in the history
 export HISTIGNORE="ls:ll:la:pwd:clear:cls:h:history:j:* --help:cd ..:..:"  # ignore common minor commands
 shopt -s histappend  # append to the history file rather than overwriting
 
