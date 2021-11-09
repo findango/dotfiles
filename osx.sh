@@ -106,8 +106,8 @@ defaults write com.google.Chrome.canary AppleEnableMouseSwipeNavigateWithScrolls
 # Shell                                                                       #
 ###############################################################################
 
-# use bash
-chsh -s /bin/bash
+# use zsh
+chsh -s /bin/zsh
 
 
 ###############################################################################

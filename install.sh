@@ -27,6 +27,7 @@ link inputrc
 link jshintrc
 link npmrc
 link vimrc
+link zshrc
 echo
 
 echo "Reloading bash profile..."
